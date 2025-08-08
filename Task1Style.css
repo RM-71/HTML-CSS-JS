@@ -61,20 +61,27 @@ font-weight: 200 !important;
   text-align: center;
   font-size: 60px;
   font-weight: 400;
-  padding-top: 20px;
+  padding-top: 15px;
   color: hsl(34, 39%, 25%);
+}
+.outer-project p{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 200;
 }
  
 .projectbox {
   background-color: hsl(34, 39%, 48%);
   border-radius: 10px;
-  width: 1210px;
-  height: 505px;
+  width: 100%;
+  max-width: 1210px;
   margin: 0 auto;
   padding: 30px 20px;
-  display:flex;
-  justify-content:space-around;
-  align-items: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card-img-wrapper{
@@ -82,6 +89,9 @@ font-weight: 200 !important;
   color: hsl(0, 0%, 90%);
   font-size: 20px;
   font-weight: light;
+  flex: 1 1 300px; /* Shrinks/grows between 300px and available space */
+  max-width: 350px;
+  box-sizing: border-box;
 }
   .card-img-wrapper img{
     width: 280px;
@@ -89,15 +99,11 @@ font-weight: 200 !important;
     border-radius: 10px;
     text-align: center;
     object-fit: cover;
-
+    transition: transform 0.3s ease; /* smooth hover */
+    box-shadow: 2px 1px 5px 0px black;
   }
     .card-img-wrapper img:hover{
-      width: 282px;
-      height: 370px;
-      border-radius: 10px;
-      transition:cubic-bezier(0.075, 0.82, 0.165, 1) width 200ms, height 250ms;
-      text-align: center;
-      object-fit: cover;
+      transform: scale(1.05); /* slightly zoom on hover */
     }
 
     .card-body p{
