@@ -48,32 +48,31 @@ document.querySelectorAll('.card-title').forEach(function(element) {
     }
   });
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('#contactForm');
+  
+  if (!form) {
+    console.error('Form not found!');
+    return;
+  }
 
-document.querySelectorAll('#submit').forEach(function(element) {
-element.addEventListener('click', function(event) {
-event.preventDefault();
+  form.addEventListener('submit', function (event) {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      event.preventDefault();
+      alert("Thank you For Contacting");
+      window.location.reload();
+    }
 
-var name = document.getElementById('name').value
-var email = document.getElementById('email').value
-var subject = document.getElementById('subject').value
-
-if (name != '' && email != '' && subject != ''){
-window.location.reload();
-}
-
-if(name=='')
-{
-    alert('Please input a Name')
-}
-if(email==''){
-    alert('Please input an Email')
-}
-if(subject==''){
-    alert('Please input a Subject')
-}
-
+    form.classList.add('was-validated');
+  });
 });
-});
+
+
+
+
 
 
 document.querySelectorAll('#contact').forEach(function(button) {
